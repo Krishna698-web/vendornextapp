@@ -14,8 +14,6 @@ dotenv.config();
 // parsing the receiving json/data
 app.use(express.json());
 
-// console.log(process.env.MONGO_URI);
-
 // Making connection to the mongodb
 mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,

@@ -1,3 +1,7 @@
+.heading {
+  display: flex;
+}
+
 .button {
   cursor: pointer;
 }
