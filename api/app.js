@@ -1,10 +1,12 @@
+// packages import
 const mongoose = require("mongoose");
 const express = require("express");
 const app = express();
-const Vendor = require("./models/vendor");
-
 const dotenv = require("dotenv");
 const cors = require("cors");
+
+// model
+const Vendor = require("./vendor");
 
 // environment variable configuration
 dotenv.config();
