@@ -3,7 +3,7 @@ import Vendors from "./Components/Vendors";
 
 function App() {
   return (
-    <div className="App">
+    <div className="App w-full">
       <Vendors />
     </div>
   );

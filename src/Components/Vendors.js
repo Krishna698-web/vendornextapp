@@ -16,8 +16,8 @@ const Vendors = () => {
   }, [vendors]);
 
   return (
-    <div className="w-full flex flex-col bg-blue-500 items-center justify-center mt-10 p-1">
-      <div className="w-6/12 relative flex flex-wrap items-center justify-between min-w-max bg-green-500">
+    <div className="w-full flex flex-col bg-blue-300 justify-center mt-10 p-1">
+      <div className="w-6/12 flex flex-wrap items-center justify-between min-w-max bg-green-200 m-auto">
         <h1 className="text-2xl font-semibold">Vendors List</h1>
         <button
           className="p-3 rounded-sm	drop-shadow-lg bg-blue-500 text-white"
@@ -26,9 +26,11 @@ const Vendors = () => {
         </button>
         {showVendorForm && <CreateVendor initialVal={vendors} />}
       </div>
-      {vendors.map((vendor) => (
-        <Vendor vendor={vendor} key={vendor._id} />
-      ))}
+      <ul>
+        {vendors.map((vendor) => (
+          <Vendor vendor={vendor} key={vendor._id} />
+        ))}
+      </ul>
     </div>
   );
 };

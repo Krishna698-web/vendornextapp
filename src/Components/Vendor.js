@@ -11,8 +11,9 @@ const Vendor = ({ vendor }) => {
 
     const data = await response.json();
   };
+
   return (
-    <div>
+    <li className="list-none w-full m-2">
       <h1>{vendor.name}</h1>
       <span>{vendor.bankName}</span>
       <p>{vendor.city}</p>
@@ -33,7 +34,7 @@ const Vendor = ({ vendor }) => {
           //   show={showEditVendor}
         />
       )}
-    </div>
+    </li>
   );
 };
 
