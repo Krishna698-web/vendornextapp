@@ -26,7 +26,7 @@ const Vendors = () => {
         </button>
         {showVendorForm && <CreateVendor initialVal={vendors} />}
       </div>
-      <ul>
+      <ul className="flex items-center flex-col mt-5">
         {vendors.map((vendor) => (
           <Vendor vendor={vendor} key={vendor._id} />
         ))}

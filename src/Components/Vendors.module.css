@@ -5,3 +5,13 @@
 .button {
   cursor: pointer;
 }
+
+.field {
+  margin-top: 5px;
+}
+
+.field input {
+  border: 1px solid lightgray;
+  border-radius: 3px;
+  padding: 5px 8px;
+}

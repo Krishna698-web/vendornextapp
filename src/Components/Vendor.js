@@ -13,20 +13,29 @@ const Vendor = ({ vendor }) => {
   };
 
   return (
-    <li className="list-none w-full m-2">
-      <h1>{vendor.name}</h1>
-      <span>{vendor.bankName}</span>
-      <p>{vendor.city}</p>
-      <span>{vendor.country}</span>
-      <p>{vendor.accountNumber}</p>
-      <button
-        onClick={() => {
-          setShowEditVendor(!showEditVendor);
-          console.log(showEditVendor);
-        }}>
-        Edit
-      </button>
-      <button onClick={() => deleteVendorHandler(vendor)}>Delete</button>
+    <li className="flex justify-around items-end gap-10 list-none w-max m-2 drop-shadow-md border p-2">
+      <div className="text-left">
+        <h1>Name: {vendor.name}</h1>
+        <span>Bank: {vendor.bankName}</span>
+        <p>A/c No.: {vendor.accountNumber}</p>
+        <p>City: {vendor.city}</p>
+        {/* <span>{vendor.country}</span> */}
+      </div>
+      <div className="">
+        <button
+          className="bg-blue-500 py-2 px-5 text-white rounded-md mx-1 "
+          onClick={() => {
+            setShowEditVendor(!showEditVendor);
+            console.log(showEditVendor);
+          }}>
+          Edit
+        </button>
+        <button
+          className="bg-red-600 py-2 px-5 text-white rounded-md mx-1"
+          onClick={() => deleteVendorHandler(vendor)}>
+          Delete
+        </button>
+      </div>
       {showEditVendor && (
         <EditVendor
           vendor={vendor}
