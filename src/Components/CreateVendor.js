@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Input from "./utils/Input";
 
-const CreateVendor = () => {
+const CreateVendor = ({ initialVal }) => {
   const [name, setName] = useState("");
   const [address1, setAddress1] = useState("");
   const [address2, setAddress2] = useState("");
@@ -24,13 +24,13 @@ const CreateVendor = () => {
       bankName,
     };
     console.log(newInfo);
-    // fetch(`http://localhost:3001/vendor/${initialVal._id}`, {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify(newInfo),
-    // });
+    fetch(`http://localhost:3001/vendor/${initialVal._id}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newInfo),
+    });
   };
 
   return (
