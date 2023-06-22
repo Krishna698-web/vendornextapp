@@ -3,7 +3,7 @@ import Input from "./utils/Input";
 import Modal from "./utils/Modal";
 import useHttp from "./cutomHooks/useHttp";
 
-const CreateVendor = () => {
+const AddVendor = ({ onShowModal }) => {
   const [name, setName] = useState("");
   const [address1, setAddress1] = useState("");
   const [address2, setAddress2] = useState("");
@@ -15,7 +15,7 @@ const CreateVendor = () => {
 
   const { sendRequest } = useHttp();
 
-  const createVendorHandler = (e) => {
+  const addVendorHandler = (e) => {
     e.preventDefault();
     const newInfo = {
       name,
@@ -27,7 +27,7 @@ const CreateVendor = () => {
       accountNumber,
       bankName,
     };
-    console.log(newInfo);
+    // console.log(newInfo);
 
     sendRequest({
       url: "http://localhost:3001/vendor",
@@ -37,19 +37,13 @@ const CreateVendor = () => {
       },
       body: newInfo,
     });
-
-    // fetch(`http://localhost:3001/vendor`, {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify(newInfo),
-    // });
   };
 
   return (
-    <Modal className="absolute inset-1/3 bg-white p-2 rounded-md drop-shadow-lg">
-      <form onSubmit={createVendorHandler}>
+    <Modal
+      onClose={onShowModal}
+      className="absolute inset-1/3 bg-white p-2 rounded-md drop-shadow-lg">
+      <form onSubmit={addVendorHandler}>
         <div className="flex flex-col">
           <Input
             label={"Name"}
@@ -100,4 +94,4 @@ const CreateVendor = () => {
   );
 };
 
-export default CreateVendor;
+export default AddVendor;

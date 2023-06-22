@@ -4,7 +4,7 @@ const BackDrop = ({ onClose }) => {
   return (
     <div
       onClick={onClose}
-      className=" absolute bg-black bg-opacity-50 h-full w-full top-0 left-0 cursor-pointer"></div>
+      className="absolute bg-black bg-opacity-50 h-full w-full top-0 left-0 cursor-pointer z-10"></div>
   );
 };
 
