@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import Vendor from "./Vendor";
-import styles from "./Vendors.module.css";
 import CreateVendor from "./CreateVendor";
 import useHttp from "./cutomHooks/useHttp";
 
@@ -19,7 +18,7 @@ const Vendors = () => {
   }, [vendors]);
 
   return (
-    <div className="w-full flex flex-col  justify-center mt-10 p-1">
+    <div className="w-full flex flex-col justify-center mt-10 p-1">
       <div className="w-6/12 flex flex-wrap items-center justify-between min-w-max  m-auto">
         <h1 className="text-2xl font-semibold">Vendors List</h1>
         <button
