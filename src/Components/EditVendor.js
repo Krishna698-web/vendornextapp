@@ -1,5 +1,6 @@
 import React, { useRef, useState } from "react";
 import styles from "./Vendors.module.css";
+import Modal from "./utils/Modal";
 
 const EditVendor = ({ vendor, onshow, show }) => {
   const [name, setName] = useState(vendor.name);
@@ -30,39 +31,43 @@ const EditVendor = ({ vendor, onshow, show }) => {
   };
 
   return (
-    <form className="absolute p-3 bg-white rounded-md" onSubmit={submitHandler}>
-      <div className={styles.field}>
-        <input
-          type="text"
-          onChange={(e) => setName(e.target.value)}
-          value={name}
-        />
-      </div>
-      <div className={styles.field}>
-        <input
-          type="text"
-          value={address1}
-          onChange={(e) => setAddress1(e.target.value)}
-        />
-      </div>
-      <div className={styles.field}>
-        <input
-          type="text"
-          value={address2}
-          onChange={(e) => setAddress2(e.target.value)}
-        />
-      </div>
-      <div className={styles.field}>
-        <input
-          type="text"
-          value={city}
-          onChange={(e) => setCity(e.target.value)}
-        />
-      </div>
-      <button className="bg-purple-600 text-white px-5 py-2 mt-2 rounded-sm drop-shadow-md">
-        Submit
-      </button>
-    </form>
+    <Modal>
+      <form
+        className="absolute p-3 bg-white rounded-md"
+        onSubmit={submitHandler}>
+        <div className={styles.field}>
+          <input
+            type="text"
+            onChange={(e) => setName(e.target.value)}
+            value={name}
+          />
+        </div>
+        <div className={styles.field}>
+          <input
+            type="text"
+            value={address1}
+            onChange={(e) => setAddress1(e.target.value)}
+          />
+        </div>
+        <div className={styles.field}>
+          <input
+            type="text"
+            value={address2}
+            onChange={(e) => setAddress2(e.target.value)}
+          />
+        </div>
+        <div className={styles.field}>
+          <input
+            type="text"
+            value={city}
+            onChange={(e) => setCity(e.target.value)}
+          />
+        </div>
+        <button className="bg-purple-600 text-white px-5 py-2 mt-2 rounded-sm drop-shadow-md">
+          Submit
+        </button>
+      </form>
+    </Modal>
   );
 };
 

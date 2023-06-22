@@ -2,17 +2,20 @@ import React, { useEffect, useState } from "react";
 import Vendor from "./Vendor";
 import styles from "./Vendors.module.css";
 import CreateVendor from "./CreateVendor";
+import useHttp from "./cutomHooks/useHttp";
 
 const Vendors = () => {
   const [showVendorForm, setShowVendorForm] = useState(false);
   const [vendors, setVendors] = useState([]);
 
+  const { fetchData } = useHttp();
+
+  const getVendorData = (vendorData) => {
+    setVendors(vendorData);
+  };
+
   useEffect(() => {
-    fetch("http://localhost:3001/vendor")
-      .then((res) => res.json())
-      .then((data) => {
-        setVendors(data);
-      });
+    fetchData({ url: "http://localhost:3001/vendor" }, getVendorData);
   }, [vendors]);
 
   return (

@@ -1,11 +1,25 @@
-const useHttp = async () => {
-  const response = await fetch(url, {
-    method: method,
-    headers: headers ? headers : {},
-    body: data ? JSON.stringify(data) : {},
-  });
+import { useState } from "react";
 
-  const data = await response.json();
+const useHttp = () => {
+  // const [responseData, setResponseData] = useState();
 
-  return { data };
+  const fetchData = async (httpRequest, getData) => {
+    try {
+      const response = await fetch(httpRequest.url, {
+        method: httpRequest.method ? httpRequest.method : "GET",
+        headers: httpRequest.headers ? httpRequest.headers : {},
+        body: httpRequest.body ? JSON.stringify(httpRequest.body) : null,
+      });
+      const data = await response.json();
+      getData(data);
+      return data;
+    } catch (error) {
+      console.log(error.message);
+      throw new Error();
+    }
+  };
+
+  return { fetchData };
 };
+
+export default useHttp;
