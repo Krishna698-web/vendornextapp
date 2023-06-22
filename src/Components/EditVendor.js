@@ -33,7 +33,7 @@ const EditVendor = ({ vendor, onshow, show }) => {
   return (
     <Modal>
       <form
-        className="absolute p-3 bg-white rounded-md"
+        // className="absolute p-3 bg-white rounded-md"
         onSubmit={submitHandler}>
         <div className={styles.field}>
           <input
